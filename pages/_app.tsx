@@ -28,7 +28,7 @@ function Robes({ Component, pageProps }) {
           property="og:description"
           content="See the floor price of gear from the Dope Wars project."
         />
-        <meta property="og:image" content="https://imgur.com/a/5TtxFqM" />
+        <meta property="og:image" content="https://i.imgur.com/2NB1GCm.png" />
       </Head>
     </>
   )
