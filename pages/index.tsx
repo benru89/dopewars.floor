@@ -5,7 +5,8 @@ export async function getStaticProps() {
   const fs = require('fs');
   const url = process.env.BASE_URL + "/items?itemname=" + process.env.ITEMNAME + "&category=" + process.env.CATEGORY
   const res = await fetch(url)
-  const json: String = await res.json()
+  var json = await res.text();
+  
   fs.writeFile("../data/ids.json", json, 'utf8', function (err) {
     if (err) {
         console.log("An error occured while writing JSON Object to File.");
