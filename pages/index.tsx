@@ -34,10 +34,10 @@ const Robe = ({ robe }: { robe: RobeInfo }) => {
 const IndexPage = ({ robes, lastUpdate }: Props) => {
   return (
     <div className="py-3 md:pb-0 font-mono flex flex-col justify-center items-center gap-4 pt-10 md:w-screen">
-      <h1 className="text-lg md:text-3xl">Rolls Royces</h1>
+      <h1 className="text-lg md:text-3xl">{process.env.ITEMNAME}</h1>
       <div className="text-center max-w-screen-md md:leading-loose">
         <p className="md:text-xl">
-          There are {robes.length} bags for sale with Rolls Royce. The floor
+          There are {robes.length} bags for sale with {process.env.ITEMNAME}. The floor
           price is {robes[0].price} ETH.
         </p>
         <p className="md:text-lg pt-2">
@@ -53,7 +53,7 @@ const IndexPage = ({ robes, lastUpdate }: Props) => {
           <a
             target="_blank"
             className="underline"
-            href="https://rollsroyce-market.vercel.app/"
+            href="https://dopewars.floor.vercel.app/"
           >
             Discord
           </a>
