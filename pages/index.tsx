@@ -2,19 +2,6 @@ import { RobeInfo, fetchRobes } from './api/robes'
 import { format as ts } from 'timeago.js'
 
 export async function getStaticProps() {
-  const fs = require('fs');
-  const url = process.env.BASE_URL + "/items?itemname=" + process.env.ITEMNAME + "&category=" + process.env.CATEGORY
-  const res = await fetch(url)
-  var json = await res.text();
-  
-  fs.writeFile("ids.json", json, 'utf8', function (err) {
-    if (err) {
-        console.log("An error occured while writing JSON Object to File.");
-        return console.log(err);
-    }
-    console.log("JSON file has been saved.");
-  });
-
   const data = await fetchRobes()
   return {
     props: {

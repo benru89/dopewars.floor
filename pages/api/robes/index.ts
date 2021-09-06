@@ -3,9 +3,7 @@ import pMap from 'p-map'
 import { chunk, flatten, orderBy } from 'lodash'
 import { utils as etherUtils, BigNumber } from 'ethers'
 import type { OpenseaResponse, Asset } from '../../../utils/openseaTypes'
-import RobeIDs from '../../../data/ids.json'
 
-const chunked = chunk(RobeIDs, 20)
 const apiKey = process.env.OPENSEA_API_KEY
 
 const fetchRobePage = async (ids: string[]) => {
@@ -29,6 +27,11 @@ export interface RobeInfo {
 }
 
 export const fetchRobes = async () => {
+  const url = process.env.BASE_URL + "/items?itemname=" + process.env.ITEMNAME + "&category=" + process.env.CATEGORY
+  const res = await fetch(url)
+  var json = await res.text();
+  const chunked = chunk(json, 20)
+
   const data = await pMap(chunked, fetchRobePage, { concurrency: 2 })
   const mapped = flatten(data)
     .filter((d) => {
