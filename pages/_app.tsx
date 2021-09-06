@@ -26,7 +26,7 @@ function Robes({ Component, pageProps }) {
         <link rel="icon" type="image/png" href="/favicon.png" />
         <meta
           property="og:description"
-          content="See the floor price of bags from the Dope Wars project."
+          content="See the floor price of gear from the Dope Wars project."
         />
         <meta property="og:image" content="https://imgur.com/a/5TtxFqM" />
       </Head>
