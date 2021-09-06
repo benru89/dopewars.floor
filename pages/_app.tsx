@@ -28,7 +28,7 @@ function Robes({ Component, pageProps }) {
           property="og:description"
           content="See the floor price of bags from the Dope Wars project."
         />
-        <meta property="og:image" content="https://dopewars.floor.vercel.app/og.png" />
+        <meta property="og:image" content="https://imgur.com/a/5TtxFqM" />
       </Head>
     </>
   )
