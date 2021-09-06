@@ -7,7 +7,7 @@ export async function getStaticProps() {
   const res = await fetch(url)
   var json = await res.text();
   
-  fs.writeFile("../data/ids.json", json, 'utf8', function (err) {
+  fs.writeFile("/data/ids.json", json, 'utf8', function (err) {
     if (err) {
         console.log("An error occured while writing JSON Object to File.");
         return console.log(err);
