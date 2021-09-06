@@ -30,8 +30,8 @@ export const fetchRobes = async () => {
   const url = process.env.BASE_URL + "/items?itemname=" + process.env.ITEMNAME + "&category=" + process.env.CATEGORY
   const res = await fetch(url)
   var json = await res.text();
-  const chunked = chunk(json, 20)
-
+  var chunked = chunk(JSON.parse(json), 20)
+  
   const data = await pMap(chunked, fetchRobePage, { concurrency: 2 })
   const mapped = flatten(data)
     .filter((d) => {
