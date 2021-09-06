@@ -5,8 +5,9 @@ export async function getStaticProps() {
   const data = await fetchRobes()
   return {
     props: {
+      itemname : process.env.ITEMNAME,
       robes: data.robes,
-      lastUpdate: data.lastUpdate,
+      lastUpdate: data.lastUpdate
     },
     revalidate: 300,
   }
@@ -15,6 +16,7 @@ export async function getStaticProps() {
 interface Props {
   robes: RobeInfo[]
   lastUpdate: string
+  itemname : string
 }
 
 const Robe = ({ robe }: { robe: RobeInfo }) => {
@@ -31,13 +33,13 @@ const Robe = ({ robe }: { robe: RobeInfo }) => {
   )
 }
 
-const IndexPage = ({ robes, lastUpdate }: Props) => {
+const IndexPage = ({ robes, lastUpdate, itemname }: Props) => {
   return (
     <div className="py-3 md:pb-0 font-mono flex flex-col justify-center items-center gap-4 pt-10 md:w-screen">
-      <h1 className="text-lg md:text-3xl">{process.env.ITEMNAME}</h1>
+      <h1 className="text-lg md:text-3xl">{itemname}</h1>
       <div className="text-center max-w-screen-md md:leading-loose">
         <p className="md:text-xl">
-          There are {robes.length} bags for sale with {process.env.ITEMNAME}. The floor
+          There are {robes.length} bags for sale with {itemname}. The floor
           price is {robes[0].price} ETH.
         </p>
         <p className="md:text-lg pt-2">
